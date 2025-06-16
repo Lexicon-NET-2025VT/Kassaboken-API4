@@ -1,0 +1,6 @@
+@Kassaboken_API4_HostAddress = http://localhost:5213
+
+GET {{Kassaboken_API4_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
