@@ -33,5 +33,24 @@
             
         }
 
+        public static async Task UpdateTransaction(int id, Models.Transaction transaction)
+        {
+            await Task.Delay(dbSpeed);
+            var existingTransaction = DB.Transactions.Where(t => t.Id == id).SingleOrDefault();
+            if (existingTransaction != null)
+            {
+                existingTransaction.Title = transaction.Title;
+                existingTransaction.Amount = transaction.Amount;
+                existingTransaction.Date = transaction.Date;
+            }
+        }
+
+        public static async Task DeleteTransaction(int id)
+        {
+            await Task.Delay(dbSpeed);
+            var existingTransaction = DB.Transactions.Where(t => t.Id == id).SingleOrDefault();
+            DB.Transactions.Remove(existingTransaction);
+        }
+
     }
 }
